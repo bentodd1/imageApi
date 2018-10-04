@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app) {
-  var image = require('../controllers/sceneController');
+  var image = require('../controllers/imageController');
 
   // todoList Routes
   app.route('/images')

@@ -21,38 +21,38 @@ app.get("/image.png", (req, res) => {
 
 export.create_a_image = function(req, res) {
   var new_image = new Image(req.body);
-  new_image.save(function(err, scene) {
+  new_image.save(function(err, image) {
     if (err)
       res.send(err);
-    res.json(scene);
+    res.json(image);
   });
 };
 
 
 exports.read_a_image = function(req, res) {
-  Scene.findById(req.params.id, function(err, scene) {
+  Scene.findById(req.params.id, function(err, image) {
     if (err)
       res.send(err);
-    res.json(scene);
+    res.json(image);
   });
 };
 
 
 exports.update_a_image = function(req, res) {
-  Task.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, scene) {
+  Task.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, image) {
     if (err)
       res.send(err);
-    res.json(scene);
+    res.json(image);
   });
 };
 
 
-exports.delete_a_scene = function(req, res) {
+exports.delete_a_image = function(req, res) {
 
 
   Image.remove({
     _id: req.params.id
-  }, function(err, scene) {
+  }, function(err, image) {
     if (err)
       res.send(err);
     res.json({ message: 'Scene successfully deleted' });
